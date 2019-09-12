@@ -1,12 +1,9 @@
 ---
 title: How to use Xi-editor?
 date: 2019-05-08 14:38:05
-tags:
-    - Xi-editor
-categories:
-    - tech
-thumbnail: /post/How-to-use-Xi-editor/xi-mac.png
 ---
+
+{% asset_img xi-mac.png xi-mac %}
 
 # What is Xi-editor?
 
