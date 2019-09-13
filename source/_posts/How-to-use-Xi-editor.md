@@ -32,11 +32,11 @@ cd xi-mac
 xcodebuild
 ```
 
-之后会在`XiEditor.app`文件会在`./build/Release/`文件夹下。
+`XiEditor.app` in `./build/Release/`
 
 ### Move to Applications Folder:
 
-将其拖入Application文件夹。
+drag to Application folder
 
 ```bash
 cp -r Build/Release/XiEditor.app /Applications
@@ -58,9 +58,9 @@ cp -r Build/Release/XiEditor.app /Applications
 
 ## Move to :
 
-找到`/Users/username/Library/Application\ Support/XiEditor/themes/`
+find `/Users/username/Library/Application\ Support/XiEditor/themes/`
 
-将`Dracula.tmTheme`拖入
+drag `Dracula.tmTheme` to it
 
 ## Change theme
 
@@ -78,17 +78,17 @@ the general preferences are located at ~/Library/Application Support/XiEditor/pr
 
 ## Installation
 
-将插件解压后拖入`/Users/huixie/Library/Application\ Support/XiEditor/plugins/`
+unzip `/Users/huixie/Library/Application\ Support/XiEditor/plugins/`
 
-将之前下载的xi-mac文件夹也拖入其中
+drag xi-mac folder to it
 
-进入插件的文件夹
+go to plugin folder
 
 ```bash
 make install
 ```
 
-之后打开 Xi-editor，Debug > Plugin 启用
+open Xi-editor，Debug > Plugin start
 
 {% asset_img word_count_plugin.png word_count_plugin %}
 

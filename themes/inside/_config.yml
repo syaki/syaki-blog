@@ -96,7 +96,7 @@ profile:
   # You can set Avatar URL directly
   # avatar:
 
-  bio: 🦀 study js & rust
+  bio: 🦀 study js & rust, daza pro
 
 # Sidebar navigation links
 menu:
@@ -275,7 +275,7 @@ copyright:
   # Display link, default to `true`
   link: true
 
-  license: 自由转载-非商用-禁止演绎-保持署名
+  license: Attribution-NonCommercial-NoDerivatives 4.0 International
     (<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"
     rel=\"external nofollow\" target=\"_blank\">CC BY-NC-ND 4.0</a>)
 
