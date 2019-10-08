@@ -5,7 +5,7 @@ date: 2019-10-08 10:46:27
 
 # A super tiny compiler
 
-This file would only be ~200 lines of actual code.
+This file would only be ~200 lines of actual code. [source code](https://github.com/syaki/the-tiny-compiler)
 
 这个文件大概只有200行代码。
 
