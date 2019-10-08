@@ -211,3 +211,88 @@ The reason I use the word "visiting" is because there is this pattern of how to 
 我之所以使用“访问”这个词，是因为存在这样一种模式，即如何表示对象结构元素上的操作。
 
 ## Visitors
+
+The basic idea here is that we are going to create a “visitor” object that has methods that will accept different node types.
+
+这里的基本思想是，我们将创建一个“visitor”对象，该对象的方法将接受不同的节点类型。
+
+```js
+var visitor = {
+    NumberLiteral() {},
+    CallExpression() {},
+};
+```
+
+When we traverse our AST, we will call the methods on this visitor whenever we "enter" a node of a matching type.
+
+当我们遍历AST时，每当我们“输入”一个匹配类型的节点时，就会调用这个访问器上的方法。
+
+In order to make this useful we will also pass the node and a reference to the parent node.
+
+为了使其有用，我们还将把节点和引用传递给父节点。
+
+```js
+var visitor = {
+    NumberLiteral(node, parent) {},
+    CallExpression(node, parent) {},
+};
+```
+
+However, there also exists the possibility of calling things on "exit". Imagine our tree structure from before in list form:
+
+但是，也存在调用“exit”的可能性。想象一下我们的树结构，从以前的列表形式:
+
+```yml
+- Program
+    - CallExpression
+        - NumberLiteral
+        - CallExpression
+            - NumberLiteral
+            - NumberLiteral
+```
+
+As we traverse down, we're going to reach branches with dead ends. As we finish each branch of the tree we "exit" it. So going down the tree we "enter" each node, and going back up we "exit".
+
+当我们向下走的时候，我们会到达一些没有树枝的尽头。当我们完成树的每个分支时，我们“退出”它。因此，沿着树向下，我们“输入”每个节点，然后向上，我们“退出”每个节点。
+
+```
+-> Program (enter)
+    -> CallExpression (enter)
+        -> Number Literal (enter)
+        <- Number Literal (exit)
+        -> Call Expression (enter)
+            -> Number Literal (enter)
+            <- Number Literal (exit)
+            -> Number Literal (enter)
+            <- Number Literal (exit)
+        <- CallExpression (exit)
+    <- CallExpression (exit)
+<- Program (exit)
+```
+
+In order to support that, the final form of our visitor will look like this:
+
+为了支持这一点，我们的访问者的最终形式将是这样的:
+
+```js
+var visitor = {
+    NumberLiteral: {
+        enter(node, parent) {},
+        exit(node, parent) {},
+    }
+};
+```
+
+# Code Generation
+
+The final phase of a compiler is code generation. Sometimes compilers will do things that overlap with transformation, but for the most part code generation just means take our AST and string-ify code back out.
+
+编译器的最后阶段是代码生成。有时编译器会做一些与转换重叠的事情，但大多数情况下，代码生成只是意味着将AST和string-ify代码拿出来。
+
+Code generators work several different ways, some compilers will reuse the tokens from earlier, others will have created a separate representation of the code so that they can print node linearly, but from what I can tell most will use the same AST we just created, which is what we’re going to focus on.
+
+代码生成器有几种不同的方式工作，一些编译器将重用令牌，其它的将会创建一个单独的代码表示，这样他们就可以打印节点线性，但我可以说大部分都使用我们刚刚创建的相同的AST，这是我们要关注的。
+
+Effectively our code generator will know how to “print” all of the different node types of the AST, and it will recursively call itself to print nested nodes until everything is printed into one long string of code.
+
+实际上，我们的代码生成器将知道如何“打印”AST的所有不同节点类型，它将递归地调用自身来打印嵌套节点，直到所有内容都打印到一个长串代码中。
