@@ -41,7 +41,7 @@ Most compilers break down into three primary stages: Parsing, Transformation, an
    
     *Code Generation* 根据转化后的抽象代码表现形式生产新的代码。
 
-# Parsing
+## Parsing
 
 Parsing typically gets broken down into two phases: Lexical Analysis and Syntactic Analysis.
 
@@ -109,7 +109,7 @@ And an Abstract Syntax Tree (AST) might look like this:
 }
 ```
 
-# Transformation
+## Transformation
 
 The next type of stage for a compiler is transformation. Again, this just takes the AST from the last step and makes changes to it. It can manipulate the AST in the same language or it can translate it into an entirely new language.
 
@@ -146,7 +146,7 @@ Since we’re targeting a new language, we’re going to focus on creating an en
 
 由于我们的目标是一种新语言，所以我们将重点创建一个针对目标语言的全新AST。
 
-## Traversal
+### Traversal
 
 In order to navigate through all of these nodes, we need to be able to traverse through them. This traversal process goes to each node in the AST depth-first.
 
@@ -210,7 +210,7 @@ The reason I use the word "visiting" is because there is this pattern of how to 
 
 我之所以使用“访问”这个词，是因为存在这样一种模式，即如何表示对象结构元素上的操作。
 
-## Visitors
+### Visitors
 
 The basic idea here is that we are going to create a “visitor” object that has methods that will accept different node types.
 
@@ -283,7 +283,7 @@ var visitor = {
 };
 ```
 
-# Code Generation
+## Code Generation
 
 The final phase of a compiler is code generation. Sometimes compilers will do things that overlap with transformation, but for the most part code generation just means take our AST and string-ify code back out.
 
