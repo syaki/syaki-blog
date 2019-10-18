@@ -1,6 +1,7 @@
 ---
 title: The Tiny Compiler
 date: 2019-10-08 10:46:27
+tags: JavaScript
 ---
 
 # A super tiny compiler

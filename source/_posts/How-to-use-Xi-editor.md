@@ -1,6 +1,7 @@
 ---
 title: How to use Xi-editor?
 date: 2019-05-08 14:38:05
+tags: Rust
 ---
 
 {% asset_img xi-mac.png xi-mac %}
