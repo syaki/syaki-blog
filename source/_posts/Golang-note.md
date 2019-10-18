@@ -48,7 +48,7 @@ tags: Golang
 
 在代码中如何使用远程包，在开头 `import` 相应的路径：
 
-```go
+```golang
 import "github.com/astaxie/beedb"
 ```
 
