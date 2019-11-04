@@ -4,11 +4,9 @@ date: 2019-10-18 13:55:58
 tags: Golang
 ---
 
-# Golang note
+# `Go` 环境
 
-## `Go` 环境
-
-### `GOPATH`
+## `GOPATH`
 
 `GOPATH` 允许多个目录。
 
@@ -23,11 +21,11 @@ tags: Golang
 -   `pkg` 编译后生成的文件（比如：`.a`）
 -   `bin` 编译后生成的可执行文件（为了方便，可以把此目录加入到 `$PATH` 变量中，如果有多个 `GOPATH`，那么使用 `\${GOPATH//://bin:}/bin` 添加所有的 `bin` 目录）
 
-### 代码目录结构
+## 代码目录结构
 
 应用包或者可执行应用根据 `package` 是 `main` 还是其他来决定，一般建议 `package` 的名称和目录名保持一致。
 
-### 编译和应用
+## 编译和应用
 
 应用包编译安装的两种方法：
 
@@ -43,7 +41,7 @@ tags: Golang
 
 进入应用目录，然后执行 `go build`，那么在该目录下面会生成一个 `${ApplicationName}` 的可执行文件。
 
-### 获取远程包
+## 获取远程包
 
 在代码中如何使用远程包，在开头 `import` 相应的路径：
 
@@ -51,7 +49,7 @@ tags: Golang
 import "github.com/astaxie/beedb"
 ```
 
-### 整体结构
+## 整体结构
 
 ```
 bin/
@@ -74,9 +72,9 @@ src/
                 util.go
 ```
 
-## `Go` 命令
+# `Go` 命令
 
-### `go build` & `go install`
+## `go build` & `go install`
 
 `go build` 用于编译代码。在包的编译过程中，若有必要，会同时编译与之相关联的包。
 
@@ -100,7 +98,7 @@ src/
 
     `go build` 的时候会选择性地编译以系统名结尾的文件（Linux、Darwin、Windows、Freebsd）。例如 Linux 系统下面编译只会选择 array_linux.go 文件，其它系统命名后缀文件全部忽略。
 
-### `go clean`
+## `go clean`
 
 用来移除当前源码包和关联源码包里面编译生成的文件。这些文件包括：
 
@@ -118,11 +116,11 @@ MAINFILE(.exe)   由go build MAINFILE.go产生
 *.so             由 SWIG 产生
 ```
 
-### `go test`
+## `go test`
 
 执行命令，自动读取源码目录下面名为 `*_test.go` 的文件，生成并运行测试用的可执行文件。
 
-### `godoc`
+## `godoc`
 
 在 `Go 1.2` 版本之前还支持 `go doc` 命令，但是之后全部移到了 `godoc` 这个命令下，需要这样安装 `go get golang.org/x/tools/cmd/godoc` 。
 
@@ -130,13 +128,13 @@ MAINFILE(.exe)   由go build MAINFILE.go产生
 
 通过命令在命令行执行 `godoc -http=:端口号` 比如 `godoc -http=:8080`。然后在浏览器中打开 `127.0.0.1:8080`，将会看到一个 `golang.org` 的本地 `copy` 版本，通过它可以查询 `pkg` 文档等其它内容。如果设置了 `GOPATH`，在 `pkg` 分类下，不但会列出标准包的文档，还会列出本地 `GOPATH` 中所有项目的相关文档。
 
-## `Go` 语言
+# `Go` 语言
 
-### 程序
+## 程序
 
 包名 `main` 告诉我们它是一个可独立运行的包，编译后会产生可执行文件。除了 `main` 包之外，其它的包最后都会生成 `*.a` 文件（也就是包文件）并放置在 `$GOPATH/pkg/$GOOS_$GOARCH` 中（以 `Mac` 为例就是 `$GOPATH/pkg/darwin_amd64`）。
 
-### 变量 & 常量
+## 变量 & 常量
 
 `var` 关键字定义变量，把变量类型放在变量名后面。
 
@@ -148,7 +146,7 @@ MAINFILE(.exe)   由go build MAINFILE.go产生
 
 `const` 常量可定义为数值、布尔值或字符串等类型。
 
-### 类型
+## 类型
 
 -   整数类型有无符号和带符号两种。同时支持 `int` 和 `uint`。两种类型的长度相同，具体长度取决于不同编译器的实现。
 
@@ -184,7 +182,7 @@ MAINFILE(.exe)   由go build MAINFILE.go产生
 
 -   `error` 类型，专门用来处理错误信息，`package` 里有一个包 `errors` 来处理错误。
 
-### 分组声明
+## 分组声明
 
 ```golang
 const(
@@ -200,7 +198,7 @@ var(
 )
 ```
 
-### `iota` 枚举
+## `iota` 枚举
 
 关键字 `iota`，这个关键字用来声明 `enum` 的时候采用，它默认开始值是 `0`，`const` 中每增加一行加 1：
 
@@ -231,7 +229,7 @@ func main() {
 }
 ```
 
-### 默认规则
+## 默认规则
 
 -   大写字母开头的变量是可导出的，也就是其它包可以读取的，是公有变量；小写字母开头的就是不可导出的，是私有变量。
 -   大写字母开头的函数也是一样，相当于 `class` 中的带 `public` 关键词的公有函数；小写字母开头的就是有 `private` 关键词的私有函数。
