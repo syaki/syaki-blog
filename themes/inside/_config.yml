@@ -134,7 +134,7 @@ sns:
 # Sidebar footer copyright info
 footer:
   # Set to false to hide.
-  copyright: '&copy; 2020 🦀️ <a href="http://blog.syaki.cn">Syaki</a>'
+  copyright: '&copy; 2020 🦀️ <a href="https://syaki.github.io">Syaki</a>'
 
   # Set to false to hide Hexo link.
   # powered: false
