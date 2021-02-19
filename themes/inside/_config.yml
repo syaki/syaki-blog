@@ -95,9 +95,9 @@ profile:
 
 # Sidebar navigation links
 menu:
-  🏠 Home: /
-  🔍 Search: /search
-  🏷️ Tags: /tags
+  🏠  Home: /
+  🔍  Search: /search
+  🏷️  Tags: /tags
   # About: /about
   # Links: /links
   # Github: https://github.com/username
