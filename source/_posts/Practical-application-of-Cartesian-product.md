@@ -1,10 +1,20 @@
 ---
 title: Practical application of Cartesian product
 date: 2020-08-17 14:31:06
-tags:
+tags: [JavaScript, Java]
 ---
 
-利用笛卡尔乘积实现中文姓名拼音校验
+# `JavaScript` 使用 `Array.flagMap()` 方法实现笛卡尔乘积
+
+```javascript
+const a = ['a1', 'a2', 'a3'];
+const b = ['b1', 'b2', 'b3'];
+
+console.log(a.flatMap((x1) => b.map((x2) => x1 + x2)));
+// Array(9) [ "a1b1", "a1b2", "a1b3", "a2b1", "a2b2", "a2b3", "a3b1", "a3b2", "a3b3" ]
+```
+
+# `Java` 利用笛卡尔乘积实现中文姓名拼音校验
 
 由于中文存在多音字的情况，对于每个字可能的拼音求笛卡尔积。
 
