@@ -1,10 +1,10 @@
 ---
 title: GitLab CD/CD 实践
-date: 2021-01-31 23:06:51
+date: 2021-10-17 23:06:51
 tags: GitLab
 ---
 
-{% asset_img gitlab.svg gitlab %}
+{% asset_img gitlab.svg "GitLab'GitLab'" %}
 
 # Web 应用的 GitLab CI/CD 配置
 
