@@ -1,6 +1,6 @@
 ---
 title: GitLab CD/CD 实践
-date: 2021-10-17 23:06:51
+date: 2020-10-21 23:06:51
 tags: GitLab
 ---
 
