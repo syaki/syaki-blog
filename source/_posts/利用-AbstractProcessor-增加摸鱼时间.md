@@ -8,7 +8,7 @@ tags: Java
 
 # 背景
 
-内部 SOA 框架要求所有应用对外暴露的接口要定义一份 interface ，并且实现它。
+内部 Web 应用框架要求所有应用对外暴露的接口要定义一份 interface ，并且实现它。
 
 如下，每新增一个 HTTP 接口都需要在 TestSOAService 中添加函数定义，并在 TestSOAServiceImpl 实现。
 
