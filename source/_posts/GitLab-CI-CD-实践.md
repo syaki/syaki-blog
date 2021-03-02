@@ -1,5 +1,5 @@
 ---
-title: GitLab CD/CD 实践
+title: GitLab CI/CD 实践
 date: 2020-10-21 23:06:51
 tags: [GitLab, Java, JavaScript]
 ---
