@@ -125,3 +125,12 @@ export interface Page {
     data!: Array<T>;
 }
 ```
+
+Update: 2020/03/10
+
+可以通过 toGenericString 方法获取包含范型参数的类名
+
+```java
+clazz.toGenericString()
+// sample: public class com.demo.model.page<T> {}
+```
