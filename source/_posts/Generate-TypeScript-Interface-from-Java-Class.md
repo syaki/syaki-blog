@@ -126,11 +126,57 @@ export interface Page {
 }
 ```
 
-Update: 2020/03/10
+# Update: 2021/03/10
 
 可以通过 toGenericString 方法获取包含范型参数的类名
 
 ```java
 clazz.toGenericString()
 // sample: public class com.demo.model.page<T> {}
+```
+
+# Update: 2021/03/15
+
+使用过程中发现遗漏了对 class 的继承关系处理
+
+```java
+Map<String, String> superClassMap = new HashMap<>();
+Class superClass = clazz.getSuperclass();
+if (superClass != null) {
+    if (!"java.lang.Object".equals(superClass.getName())) {
+        superClassMap.put(
+            className,
+            superClass.getName().replaceAll(packageName + ".", "")
+        );
+    }
+}
+```
+
+# todo: 父子类有范型参数的情况
+
+```java
+class Sup<T> {
+    private List<T> list;
+}
+class Sub<T> extends Sup<T> {
+    private String name;
+}
+/**
+ * Java 的范型只是类型擦除，此处 Sub.list 的类型为 Object
+ */
+class Sub extends Sup {
+    private String name;
+}
+```
+
+```typescript
+class Sup<T> {
+    list: Array<T> | null | undefined;
+}
+/**
+ * 此处会报错
+ */
+class Sub extends Sup {
+    name: string | null | undefined;
+}
 ```
